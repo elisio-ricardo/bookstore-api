@@ -1,15 +1,29 @@
 package com.ricardo.bookstore.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Categoria {
+import javax.annotation.Generated;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+@Entity
+public class Categoria implements Serializable {
+
+	static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String descricao;
 
+	@OneToMany(mappedBy = "categoria")
 	private List<Livro> livros = new ArrayList<>();
 
 	public Categoria() {
@@ -21,7 +35,7 @@ public class Categoria {
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
-		
+
 	}
 
 	public Integer getId() {
@@ -36,6 +50,14 @@ public class Categoria {
 		return nome;
 	}
 
+	public List<Livro> getLivros() {
+		return livros;
+	}
+
+	public void setLivros(List<Livro> livros) {
+		this.livros = livros;
+	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -47,7 +69,6 @@ public class Categoria {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -65,7 +86,5 @@ public class Categoria {
 		Categoria other = (Categoria) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
 
 }
