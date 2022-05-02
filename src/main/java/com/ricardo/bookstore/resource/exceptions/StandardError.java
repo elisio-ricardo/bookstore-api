@@ -1,4 +1,4 @@
-package com.ricardo.bookstore.service.exception;
+package com.ricardo.bookstore.resource.exceptions;
 
 public class StandardError {
 	
