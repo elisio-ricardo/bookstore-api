@@ -23,7 +23,7 @@ import com.ricardo.bookstore.domain.Categoria;
 import com.ricardo.bookstore.dtos.CategoriaDTO;
 import com.ricardo.bookstore.service.CategoriaService;
 
-@CrossOrigin("*")
+@CrossOrigin(origins =  "*")
 @RestController
 @RequestMapping(value = "/categorias")
 public class CategoriaResource {

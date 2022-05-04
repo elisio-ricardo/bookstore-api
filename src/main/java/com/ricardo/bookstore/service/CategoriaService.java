@@ -48,7 +48,7 @@ public class CategoriaService {
 			repository.deleteById(id);
 		} catch (DataIntegrityViolationException e) { // esta exceção é do spring
 			throw new com.ricardo.bookstore.service.exception.DataIntegrityViolationException(//adicionada esta exceção personalizada
-					"Categoria não pode ser deletado! Possui livros associados");
+					"Categoria não pode ser deletada! Possui livros associados");
 		}
 	}
 
